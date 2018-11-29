@@ -1,5 +1,7 @@
 ## MEAN Docker
-App to show a Docker Compose set up for a mean application running Angular 2.
+App to show a Docker Compose set up for a mean application running Angular 2
+
+NOTE: Check the ng-7 branch for a version that works with Angular 7
 
 ## Set up
 Make sure you have docker and docker-compose installed.

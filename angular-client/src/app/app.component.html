@@ -1,8 +1,11 @@
+
+<!-- Bootstrap Navbar -->
 <nav class="navbar navbar-light bg-faded">
   <div class="container">
     <a class="navbar-brand" href="#">Mean Docker</a>
   </div>
 </nav>
+
 <div class="container">
   <div [style.margin-top.px]="10" class="row">
     <h3>Add new person</h3>
@@ -20,6 +23,7 @@
   </div>
   <div [style.margin-top.px]="10" class="row">
     <h3>People</h3>
+    <!-- Bootstrap Card -->
     <div [style.margin-right.px]="10" class="card card-block col-md-3" *ngFor="let person of people">
       <h4 class="card-title">{{person.name}}  {{person.age}}</h4>
     </div>
