@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-
-// Import rxjs map operator
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +15,7 @@ export class AppComponent implements OnInit {
   // Declare empty list of people
   people: any[] = [];
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   // Angular 2 Life Cycle event when component has been initialized
   ngOnInit() {
@@ -28,19 +25,17 @@ export class AppComponent implements OnInit {
   // Add one person to the API
   addPerson(name, age) {
     this.http.post(`${this.API}/users`, {name, age})
-      .map(res => res.json())
       .subscribe(() => {
         this.getAllPeople();
-      }, error => console.log(error))
+      })
   }
 
   // Get all users from the API
   getAllPeople() {
     this.http.get(`${this.API}/users`)
-      .map(res => res.json())
-      .subscribe(people => {
+      .subscribe((people: any) => {
         console.log(people)
         this.people = people
-      }, error => console.log(error))
+      })
   }
 }
